@@ -49,6 +49,14 @@ def votes():
     print(response.content)
     return response.content
 
+@app.route("/stuff", methods=['GET'])
+def votes():
+    rest_endpoint="http://" + os.environ["VOTING_API_SERVICE_HOST"] + ":" + os.environ["VOTING_API_SERVICE_PORT"]
+    response = requests.get(url=rest_endpoint + "/stuff")
+    print(response.content)
+    return response.content
+
+
 @app.route('/templates/<path:path>')
 def send_js(path):
     return send_from_directory('templates', path)
