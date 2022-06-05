@@ -6,6 +6,8 @@ import socket
 import random
 import json
 import requests
+import platform
+
 
 option_a = os.getenv('OPTION_A', u"Cat 🐺")
 option_b = os.getenv('OPTION_B', u"Dog 🐶")
@@ -54,7 +56,7 @@ def stuff():
     rest_endpoint="http://" + os.environ["VOTING_API_SERVICE_HOST"] + ":" + os.environ["VOTING_API_SERVICE_PORT"]
     response = requests.get(url=rest_endpoint + "/stuff")
     print(response.content)
-    return "Python + " + str(response.content)
+    return "Python + " + platform.python_version() + " " + response.content.decode()
 
 
 @app.route('/templates/<path:path>')
