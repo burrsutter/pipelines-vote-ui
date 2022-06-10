@@ -56,7 +56,7 @@ def stuff():
     rest_endpoint="http://" + os.environ["VOTING_API_SERVICE_HOST"] + ":" + os.environ["VOTING_API_SERVICE_PORT"]
     response = requests.get(url=rest_endpoint + "/stuff")
     print(response.content)
-    return "Python " + platform.python_version() + " Dax " + response.content.decode().strip('"')
+    return "Python " + platform.python_version() + " Kef " + response.content.decode().strip('"')
 
 
 @app.route('/templates/<path:path>')
